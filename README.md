@@ -51,3 +51,5 @@
 	2. Figma로 SVG 다루기
   3. SVG 생성 및 SVG Element 비교
   4. 간단한 SVG 애니매이션 생성
+
+## Canvas
