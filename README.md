@@ -49,7 +49,7 @@
 3. SVG 애니매이션을 도와주는 도구
 	1. Chrome Animation Tool
 	2. Figma로 SVG 다루기
-	3. SVG 생성 및 SVG Element 비교
-	4. 간단한 SVG 애니매이션 생성
+		1. SVG 생성 및 SVG Element 비교
+		2. 간단한 SVG 애니매이션 생성
 
 ## Canvas
