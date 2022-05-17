@@ -10,6 +10,8 @@
 - 다른 SVG 요소들을 **group**하기 위함
 - `<g>`에 적용된 transformation은 자식 요소들에 적용됨
   - ex. 자식 요소들에게 fill, stroke, stroke-width를 적용
+  
+![image](https://user-images.githubusercontent.com/40855076/168924833-85c54f9b-0e5b-42fc-9e54-ab860b7fab30.png)
 
 ```svg
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -26,6 +28,9 @@
 - SVG 내 요소를 재사용
 - `href`를 사용해 재사용할 요소를 호출
   - ex. 기존에 정의된 `myCircle`의 속성을 따르는 복제본 생성
+
+
+![image](https://user-images.githubusercontent.com/40855076/168924841-dc669f1f-bed1-4295-a81f-5073616f13af.png)
 
 ```svg
 <svg viewBox="0 0 30 10" xmlns="http://www.w3.org/2000/svg">
@@ -47,6 +52,9 @@ That's why the circles have different x positions, but the same stroke value.
 - 그래픽 객체를 정의(**definitions**)
 - `<defs>` 내부의 요소들은 즉시 렌더링되지 않으며, 화면에 나타내기 위해서는 참조해야함
   - ex. `<use href="#myDefinedCircle"/>`
+
+
+![image](https://user-images.githubusercontent.com/40855076/168924851-ad9225ef-fec6-47df-8c46-d0353a0cfdf9.png)
 
 ```svg
 <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
@@ -72,6 +80,9 @@ That's why the circles have different x positions, but the same stroke value.
 - `<use>`로 참조하여 사용할 수 있음
   - ex. 10x10 객체 가운데에 원이 있는 템플릿을 정의하여 사용
 
+
+![image](https://user-images.githubusercontent.com/40855076/168924858-9bf0737d-eb7b-4518-a20b-4c34b6a98563.png)
+
 ```svg
 <svg viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg">
   <!-- Our symbol in its own coordinate system -->
@@ -96,6 +107,9 @@ That's why the circles have different x positions, but the same stroke value.
 - 새로운 coordinate system과 viewport를 정의하는 컨테이너
 - `<svg>` 내부에 `<svg>` 를 중첩해서 사용할 수 있음
 
+
+![image](https://user-images.githubusercontent.com/40855076/168924874-205dd3cb-b740-498d-91d2-aab5bfcce76c.png)
+
 ```svg
 <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" stroke="red" fill="grey">
   <circle cx="50" cy="50" r="40" />
@@ -111,3 +125,6 @@ That's why the circles have different x positions, but the same stroke value.
 ## Reference
 
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Element)
+
+## 🧐 Questions 
+- `<svg>` 내부의 `<svg>`와 버전이 달라도 되나? => 됨. 하지만 svg versioning은 deprecated 상태
