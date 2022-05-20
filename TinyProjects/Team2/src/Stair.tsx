@@ -14,7 +14,8 @@ const Stair = () => {
 
   const handleScroll = (e: Event) => {
     const st = (e.target as HTMLElement).scrollTop;
-		if (window.innerHeight < st) setScroll(st);
+		// if (window.innerHeight > st)
+    setScroll(st);
   };
 
   useEffect(() => {
