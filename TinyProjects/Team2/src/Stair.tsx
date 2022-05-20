@@ -158,12 +158,12 @@ const StairLine = styled.div`
   }
 
   &:nth-child(odd) {
-    transform: skew(60deg, -25deg) scaleY(0.6667);
+    transform: skew(60deg, -25deg) scaleY(0.58);
     color: #853e18;
   }
 
   &:nth-child(even) {
-    transform: skew(0deg, -25deg) scaleY(1.333);
+    transform: skew(0deg, -25deg) scaleY(1.38);
     color: #ffaa22;
   }
 
