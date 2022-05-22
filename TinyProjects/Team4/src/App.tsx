@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { G0 } from './pages/G0';
 import { JH } from './pages/JH';
 import { MS } from './pages/MS';
+
 const pages = [
   {
     path: '/G0',
@@ -20,23 +21,23 @@ const pages = [
   }   
 ]
 
-
 function App() {
   const location = useLocation()
+
   return (
     <div className="App">
       <Nav>
         {pages.map(({path}) => {
-          const active= location.pathname ===path;
-
+          const active= location.pathname === path;
           return (
             <StyledLink 
-               className={classNames({active})} 
-               to={path}
-             >
-               {path.split('/')[1]}
-               {active && <UnderLine layoutId='underline'/>}
-             </StyledLink>
+              key={path}
+              className={classNames({active})} 
+              to={path}
+            >
+              {path.split('/')[1]}
+              {active && <UnderLine layoutId='underline'/>}
+            </StyledLink>
          )
         })}
       </Nav>
@@ -52,7 +53,6 @@ function App() {
 const Nav = styled.nav`
   text-align: center;
   padding: 10px;
-  
 `
 
 const StyledLink = styled(Link)`
