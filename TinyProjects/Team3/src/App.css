@@ -1,0 +1,15 @@
+.app {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown {
+  width: 200px;
+  margin: 20px auto;
+}
+
+.text-input {
+  width: 200px;
+  margin: 20px auto;
+}
