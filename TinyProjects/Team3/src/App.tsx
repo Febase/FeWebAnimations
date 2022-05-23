@@ -14,7 +14,7 @@ function App() {
         <option value="junseong">준성</option>
       </select>
       <input className="text-input" type="text" onChange={e => setWord(e.target.value)}/>
-      <p>{word}</p>
+      <p className={type}>{word}</p>
     </div>
   );
 }
