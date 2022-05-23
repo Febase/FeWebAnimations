@@ -1,11 +1,39 @@
-import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const names = [
-  'BONHAENG LEE',
-  'SEOKYOUNG MOON',
-  'SOONHO JANG',
-  'BYOUNGHERN KIM',
+  "BONHAENG LEE",
+  "SEOKYOUNG MOON",
+  "SOONHO JANG",
+  "BYOUNGHERN KIM",
+];
+
+const stairLineCount = [
+  {
+    emptySpan: 6,
+    filledSpan: 1,
+  },
+  {
+    emptySpan: 5,
+    filledSpan: 2,
+  },
+  {
+    emptySpan: 4,
+    filledSpan: 3,
+  },
+  {
+    emptySpan: 3,
+    filledSpan: 4,
+  },
+  {
+    emptySpan: 2,
+    filledSpan: 4,
+  },
+  {
+    emptySpan: 1,
+    filledSpan: 4,
+  },
 ];
 
 const Stair = () => {
@@ -14,112 +42,42 @@ const Stair = () => {
 
   const handleScroll = (e: Event) => {
     const st = (e.target as HTMLElement).scrollTop;
-		// if (window.innerHeight > st)
     setScroll(st);
   };
 
   useEffect(() => {
     (() => {
-      window.addEventListener('scroll', handleScroll, {
+      window.addEventListener("scroll", handleScroll, {
         passive: true,
         capture: true,
       });
     })();
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <StairSection>
       <StairContainer ref={wrap}>
-        <StairLine>
-          <span style={{ transform: `translateY(-${scroll}px)` }}> </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}> </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}> </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}> </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}> </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}> </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[0]}
-          </span>
-        </StairLine>
-        <StairLine>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[0]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[1]}
-          </span>
-        </StairLine>
-        <StairLine>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[0]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[1]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[2]}
-          </span>
-        </StairLine>
-        <StairLine>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[0]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[1]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[2]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[3]}
-          </span>
-        </StairLine>
-        <StairLine>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[0]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[1]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[2]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[3]}
-          </span>
-        </StairLine>
-        <StairLine>
-          <span style={{ transform: `translateY(-${scroll}px)` }}></span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[0]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[1]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[2]}
-          </span>
-          <span style={{ transform: `translateY(-${scroll}px)` }}>
-            {names[3]}
-          </span>
-        </StairLine>
+        {stairLineCount.map(({ emptySpan, filledSpan }, i) => (
+          <StairLine key={i}>
+            {Array.from({ length: emptySpan + filledSpan }).map((_, j) => (
+              <motion.span
+                key={i + "-" + j}
+                transformTemplate={({ y }) => `translateY(-${y})`}
+                style={{ y: scroll }}
+                whileHover={{
+                  scale: 1.1,
+                  textShadow: `-6px -8px 0px ${true ? "#853e18" : "#ffaa22"}`,
+                }}
+              >
+                {/* <motion.div whileHover={{}}> " asdfasdfasd"</motion.div> */}
+                {j + 1 > emptySpan ? names[j - emptySpan] : " "}
+              </motion.span>
+            ))}
+          </StairLine>
+        ))}
       </StairContainer>
     </StairSection>
   );
@@ -138,7 +96,7 @@ const StairContainer = styled.div`
   height: auto;
 `;
 const StairLine = styled.div`
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: "Lexend Deca", sans-serif;
   height: 6rem;
   backface-visibility: hidden;
   overflow: hidden;
@@ -150,11 +108,11 @@ const StairLine = styled.div`
     font-weight: 700;
     font-size: 6rem;
     line-height: 1.2;
-		height: 6rem;
+    height: 6rem;
     text-transform: uppercase;
-		text-rendering: optimizeLegibility;
-		width: 100%;
-		margin: 0;
+    text-rendering: optimizeLegibility;
+    width: 100%;
+    margin: 0;
   }
 
   &:nth-child(odd) {
