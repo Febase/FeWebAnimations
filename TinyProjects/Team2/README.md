@@ -8,7 +8,7 @@ marp: true
 
 >
 
-Team 2 : 김병헌 문셕영 이본행 장순호
+Team 2 : 김병헌 문석영 이본행 장순호
 
 2022.05.23 중간발표
 ![bg left:50% 100%](./static/main1.jpg)
@@ -59,14 +59,16 @@ Team 2 : 김병헌 문셕영 이본행 장순호
         <span class="text_NLT9d" style="transform: translate3d(0px, -87.5079px, 0px);"></span>
 ```
 
-이미 사용되던 표현 기법인 "Text Stairs"
-일러스트에서는 어떻게 만드는가? (grouping, transform)
+대략 `stairs` > `line (skew , scale)` > `span (translate)`의 구조 + effect
 
 
 ```css
 .line_ILzYJ:nth-child(odd) {
     transform: skew(60deg,-25deg) scaleY(.6667);
-    color: #89b449;
+}
+
+.line_ILzYJ:nth-child(2n) {
+    transform: skew(0deg,-25deg) scaleY(1.33333);
 }
 ```
 
@@ -89,7 +91,7 @@ Team 2 : 김병헌 문셕영 이본행 장순호
 
 # **2. 기능 분석 및 설계**
 
-![bg right:50% 100%](./static/sub1.jpg)
+![bg right:50% 100%](./static/main1.jpg)
 <!-- https://www.youtube.com/watch?v=vmH8dil_7uI&ab_channel=creatnprocess -->
 
 
