@@ -1,46 +1,144 @@
-# Getting Started with Create React App
+---
+marp: true
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **Project. BTS**
 
-## Available Scripts
+### *Beautiful Text Stairs*
 
-In the project directory, you can run:
+>
 
-### `yarn start`
+Team 2 : 김병헌 문석영 이본행 장순호
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2022.05.23 중간발표
+![bg left:50% 100%](./static/main1.jpg)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+# **Contents**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. 프로젝트 주제 선정
+2. 기능 분석 및 설계
+3. 적용 기술 및 구현 진행 상황
 
-### `yarn build`
+![bg left:50% 100%](./static/main1.jpg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# **1. 프로젝트 주제 선정**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+논의 되었던 주제들
+- 로딩 인디케이터
+- 텍스트 계단 (fabulatorij)
+- 마키(Marquee)
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# **1. 프로젝트 주제 선정**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+주제 3안 중에서 만장일치로 [fabulatorij](https://www.fabulatorij.com/) 선정
+- 시각적으로 흥미로운 효과
+- 스크롤 관련 이펙트
+- 적절한 기술적 난이도
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<!-- https://www.fabulatorij.com/ -->
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+# **2. 기능 분석 및 설계**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- ![bg right:50% 100%](./static/sub1.jpg) -->
+<!-- https://www.youtube.com/watch?v=vmH8dil_7uI&ab_channel=creatnprocess -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+```html
+<div class="stairs_8LJ1-">
+    <div class="line_ILzYJ">
+        <span class="text_NLT9d" style="transform: translate3d(0px, -87.5079px, 0px);"></span>
+        <span class="text_NLT9d" style="transform: translate3d(0px, -87.5079px, 0px);"></span>
+        <span class="text_NLT9d" style="transform: translate3d(0px, -87.5079px, 0px);"></span>
+```
+
+대략 `stairs` > `line (skew , scale)` > `span (translate)`의 구조 + effect
+
+
+```css
+.line_ILzYJ:nth-child(odd) {
+    transform: skew(60deg,-25deg) scaleY(.6667);
+}
+
+.line_ILzYJ:nth-child(2n) {
+    transform: skew(0deg,-25deg) scaleY(1.33333);
+}
+```
+
+---
+
+# **2. 기능 분석 및 설계**
+
+![bg right:50% 100%](./static/sub2.jpg)
+<!-- https://www.youtube.com/watch?v=vmH8dil_7uI&ab_channel=creatnprocess -->
+
+
+```markdown
+2 groups (odds/ evens)
+1. skew
+2. translate
+3. scale
+```
+
+---
+
+# **2. 기능 분석 및 설계**
+
+![bg right:50% 100%](./static/main1.jpg)
+<!-- https://www.youtube.com/watch?v=vmH8dil_7uI&ab_channel=creatnprocess -->
+
+
+```markdown
+line 1
+    1. AAA
+
+line 2
+    1. AAA
+    2. BBB
+
+line 3
+    1. AAA
+    2. BBB
+    3. CCC
+
+line 4
+    1. AAA
+    2. BBB
+    3. CCC
+    4. DDD
+...
+```
+일러스트에서는 어떻게 만드는가? [youtube](https://www.youtube.com/watch?v=vmH8dil_7uI&ab_channel=creatnprocess)
+
+---
+
+
+# **3. 적용 기술 및 구현 진행 상황**
+
+- React / ts
+- framer-motion
+- styled-component
+
+
+```
+# 진행 완료
+- 작동 원리 분석 구조 설계 - 
+
+# 진행 중
+- 프로토타입 ()
+
+# 진행 예정
+- (공동 컨테이터) Framer motion의 Scroll 적용
+- (개별 항목) Stair의 hover 이펙트 오케스트레이션
+```
+---
+
+# 감사합니다
+BTS is coming soon ...
