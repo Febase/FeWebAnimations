@@ -15,6 +15,7 @@ const names = [
   "SOONHO JANG",
   "BYOUNGHERN KIM",
 ];
+
 interface StairLineProps {
   emptySpan: number;
   filledSpan: number;
@@ -63,31 +64,6 @@ const Stair = () => {
   const { scrollYProgress } = useViewportScroll();
   const scroll = useTransform(scrollYProgress, [0, 1], [0.1, 480]);
 
-  // const [scroll, setScroll] = useState<number>(0);
-  // const wrap = useRef<any>(null);
-
-  // const handleScroll = (e: Event) => {
-  //   const st = (e.target as HTMLElement).scrollTop;
-
-  //   if (st > MAX_SCROLL_TOP) return setScroll(MAX_SCROLL_TOP);
-  //   setScroll(st);
-  // };
-
-  // useEffect(() => {
-  //   (() => {
-  //     window.addEventListener("scroll", handleScroll, {
-  //       passive: true,
-  //       capture: true,
-  //     });
-  //   })();
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-  // useEffect(() => {
-  //   console.log(scroll);
-  //   console.log(`scrollYProgress["current"]`, scrollYProgress["current"]);
-  // }, [scroll]);
   return (
     <StairSection>
       <StairContainer>
