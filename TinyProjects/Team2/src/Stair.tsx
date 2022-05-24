@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import {
+  motion,
+  motionValue,
+  TargetAndTransition,
+  useTransform,
+  useViewportScroll,
+  VariantLabels,
+} from "framer-motion";
 
 const names = [
   "BONHAENG LEE",
@@ -9,24 +16,39 @@ const names = [
   "BYOUNGHERN KIM",
 ];
 
-const stairLineCount = [
+interface StairLineProps {
+  emptySpan: number;
+  filledSpan: number;
+  whileHover?: VariantLabels | TargetAndTransition;
+}
+
+const stairLines: StairLineProps[] = [
   {
     emptySpan: 6,
     filledSpan: 1,
   },
   {
+    //본행
     emptySpan: 5,
     filledSpan: 2,
   },
   {
+    //석영
     emptySpan: 4,
     filledSpan: 3,
+    whileHover: {},
   },
   {
+    //순호
     emptySpan: 3,
     filledSpan: 4,
+    whileHover: {
+      scale: 1.1,
+      textShadow: `-6px -8px 0px ${true ? "#853e18" : "#ffaa22"}`,
+    },
   },
   {
+    //병헌
     emptySpan: 2,
     filledSpan: 4,
   },
@@ -36,43 +58,27 @@ const stairLineCount = [
   },
 ];
 
+const MAX_SCROLL_TOP = 480; // 6rem * 5
+
 const Stair = () => {
-  const [scroll, setScroll] = useState<number>(0);
-  const wrap = useRef<any>(null);
-
-  const handleScroll = (e: Event) => {
-    const st = (e.target as HTMLElement).scrollTop;
-    setScroll(st);
-  };
-
-  useEffect(() => {
-    (() => {
-      window.addEventListener("scroll", handleScroll, {
-        passive: true,
-        capture: true,
-      });
-    })();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { scrollYProgress } = useViewportScroll();
+  const scroll = useTransform(scrollYProgress, [0, 1], [0.1, 480]);
 
   return (
     <StairSection>
-      <StairContainer ref={wrap}>
-        {stairLineCount.map(({ emptySpan, filledSpan }, i) => (
+      <StairContainer>
+        {stairLines.map(({ emptySpan, filledSpan, whileHover }, i) => (
           <StairLine key={i}>
             {Array.from({ length: emptySpan + filledSpan }).map((_, j) => (
               <motion.span
                 key={i + "-" + j}
-                transformTemplate={({ y }) => `translateY(-${y})`}
-                style={{ y: scroll }}
-                whileHover={{
-                  scale: 1.1,
-                  textShadow: `-6px -8px 0px ${true ? "#853e18" : "#ffaa22"}`,
+                transformTemplate={({ y }) => {
+                  console.log(y);
+                  return `translateY(-${y})`;
                 }}
+                style={{ y: scroll }}
+                whileHover={whileHover}
               >
-                {/* <motion.div whileHover={{}}> " asdfasdfasd"</motion.div> */}
                 {j + 1 > emptySpan ? names[j - emptySpan] : " "}
               </motion.span>
             ))}
@@ -113,6 +119,7 @@ const StairLine = styled.div`
     text-rendering: optimizeLegibility;
     width: 100%;
     margin: 0;
+    transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   }
 
   &:nth-child(odd) {
