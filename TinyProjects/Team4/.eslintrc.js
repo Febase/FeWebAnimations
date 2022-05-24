@@ -1,8 +1,8 @@
 module.exports = {
   extends: [
+    'airbnb',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'airbnb',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
   ],
@@ -21,6 +21,10 @@ module.exports = {
         ExportDeclaration: { multiline: true, consistent: true },
       },
     ],
+    'no-use-before-define': ['error', {
+      functions: false,
+      variables: false,
+    }],
     'react/jsx-props-no-multi-spaces': 2,
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
     'react/jsx-props-no-spreading': ['off'],
@@ -29,6 +33,7 @@ module.exports = {
     }],
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-function': ['off'],
+
     'import/prefer-default-export': ['off'],
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: true,

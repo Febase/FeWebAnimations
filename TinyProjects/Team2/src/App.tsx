@@ -12,7 +12,7 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
 
 const PageWrapper = styled.main`
   position: relative;
