@@ -10,6 +10,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'comma-spacing': ['error', { before: false, after: true }],
     'no-trailing-spaces': 'error',
+    'no-shadow': ['off'],
     'key-spacing': ['error', { afterColon: true }],
     'object-curly-spacing': ['error', 'always'],
     'object-curly-newline': [
@@ -28,6 +29,7 @@ module.exports = {
     'react/jsx-props-no-multi-spaces': 2,
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
     'react/jsx-props-no-spreading': ['off'],
+    'react/no-array-index-key': ['warn'],
     '@typescript-eslint/explicit-function-return-type': [1, {
       allowExpressions: true,
     }],
