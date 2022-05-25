@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import {
   motion,
@@ -31,6 +31,10 @@ const stairLines: StairLineProps[] = [
     //본행
     emptySpan: 5,
     filledSpan: 2,
+    whileHover: {
+      filter: "brightness(115%) drop-shadow(-6px -4px 3px #c18214)",
+      textShadow: "-6px -4px 3px #ffa412",
+    },
   },
   {
     //석영
