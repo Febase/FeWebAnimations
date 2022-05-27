@@ -24,7 +24,6 @@ const IconBase: React.FC<IconBaseProps> = ({
         duration: 1.5,
       },
     });
-
   }, [isAnimate, controls]);
 
   return (

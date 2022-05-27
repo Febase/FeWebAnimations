@@ -3,9 +3,13 @@ import Icons from './Icons';
 import TabbarBase from './TabbarBase';
 import TabbarItem from './TabbarItem';
 import TabbarIndicator from './TabbarIndicator';
-import colors from './colors';
+import defaultColors from './colors';
 
-const Type1: React.FC = () => {
+interface Type1Props {
+  colors?: string[];
+}
+
+const Type1: React.FC<Type1Props> = ({ colors = defaultColors }) => {
   const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
 
   const [isIndicatorAnimated, setIsIndicatorAnimated] = React.useState<boolean>(false);

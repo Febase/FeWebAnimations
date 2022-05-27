@@ -11,4 +11,3 @@ export default {
 const Template: ComponentStory<ComponentType> = (args) => <Type2 {...args} />;
 
 export const _Type2 = Template.bind({});
-
