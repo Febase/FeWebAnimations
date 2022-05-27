@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { motion, useAnimation } from 'framer-motion';
 import { styled } from '@stitches/react';
+import { motion, useAnimation } from 'framer-motion';
 import type { SVGMotionProps } from 'framer-motion';
 
 export interface IconBaseProps extends SVGMotionProps<SVGSVGElement> {
@@ -24,6 +24,7 @@ const IconBase: React.FC<IconBaseProps> = ({
         duration: 1.5,
       },
     });
+
   }, [isAnimate, controls]);
 
   return (

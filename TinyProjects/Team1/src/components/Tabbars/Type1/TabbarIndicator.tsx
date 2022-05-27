@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { motion } from 'framer-motion';
 import { styled } from '@stitches/react';
+import { motion } from 'framer-motion';
 
 interface TabbarIndicatorProps {
   x: number;
