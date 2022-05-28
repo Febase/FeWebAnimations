@@ -1,26 +1,23 @@
-import styled from 'styled-components';
-import Stair from './Stair';
+import styled from "styled-components";
+import Stair from "./Stair";
 
 function App() {
- 
   return (
     <PageWrapper>
       <Header>
         <PageTitle>BTS</PageTitle>
       </Header>
-      <Stair/>
+      <Stair />
     </PageWrapper>
   );
 }
 
-export default App;
+export default App; 
 
 const PageWrapper = styled.main`
   position: relative;
   background-color: #ebe8d6;
-  height: 100vh;
   width: 100%;
-  overflow-y: scroll;
 `;
 const Header = styled.header`
   display: flex;
