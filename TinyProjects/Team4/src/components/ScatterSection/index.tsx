@@ -9,11 +9,10 @@ import { motion } from 'framer-motion';
 export function ScatterSection(): React.ReactElement {
   return (
     <Section
-      whileInView={{ backgroundColor: '#000' }}
       onViewportEnter={(en) => console.log('ScatterSection viewport enter', en)}
       onViewportLeave={(en) => console.log('ScatterSection viewport leave', en)}
     >
-      <div className="heading">
+      <div className="heading--container">
         <motion.h2 whileInView={{ color: '#fff' }}>
           2022를 함께 맞이 할
           <br />
@@ -23,33 +22,35 @@ export function ScatterSection(): React.ReactElement {
           FEConf는 여러분과 후원사의 지원으로 만들어지는 비영리 단체입니다.
         </motion.p>
       </div>
-      <div className="thanksto">
-        <motion.h3 whileInView={{ color: '#fff' }}>Special Thanks to</motion.h3>
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/febase">
-          <div className="title--container">
-            <motion.svg
-              animate={{
-                scale: [1, 2, 1],
-                opacity: [0.8, 0.4, 0.8],
-              }}
-              transition={{
-                duration: 1.5,
-                ease: 'easeInOut',
-                repeat: Infinity,
-              }}
-              className="heart"
-              viewBox="0 0 32 29.6"
-            >
-              <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" />
-            </motion.svg>
+      <div className="thanksto--container">
+        <div className="heart-wrapper">
+          <motion.svg
+            animate={{
+              scale: [1, 2, 1],
+              opacity: [0.8, 0.4, 0.8],
+            }}
+            transition={{
+              duration: 1.5,
+              ease: 'easeInOut',
+              repeat: Infinity,
+            }}
+            className="heart"
+            viewBox="0 0 32 32"
+          >
+            <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" />
+          </motion.svg>
+        </div>
+        <div className="content">
+          <motion.h3 whileInView={{ color: '#fff' }}>Special Thanks to</motion.h3>
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/febase">
             <motion.h1 whileInView={{ color: '#fff' }} className="title">
               FeBase
             </motion.h1>
-          </div>
-        </a>
-        <motion.p whileInView={{ color: '#ccc' }}>
-          Web Frontend Developer 생태계 발전을 위한 FeBase의 노고에 깊이 감사드립니다!
-        </motion.p>
+          </a>
+          <motion.p whileInView={{ color: '#ccc' }}>
+            Web Frontend Developer 생태계 발전을 위한 FeBase의 노고에 깊이 감사드립니다!
+          </motion.p>
+        </div>
       </div>
       <div className="members">
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/walt1992">
@@ -81,29 +82,17 @@ const Section = styled(motion.section)`
     sans-serif;
   text-align: center;
   padding: 230px 0;
+  background-color: #000;
 
   @media (max-width: 1024px) {
     padding: 80px 0;
   }
-  .title--container {
-    position: relative;
-  }
 
   .title {
-    position: relative;
     font-size: 5rem;
     margin: 1.5rem 0 2.25rem;
   }
 
-  .heart {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    fill: rgba(204, 42, 93, 1);
-    width: 100px;
-    height: 100px;
-    z-index: 0;
-  }
   h2 {
     font-size: 3.25rem;
   }
@@ -114,11 +103,27 @@ const Section = styled(motion.section)`
     text-decoration: none;
     color: inherit;
   }
-  .heading p {
+  .heading--container p {
     font-size: larger;
   }
-  .thanksto {
+  .thanksto--container {
     margin: 120px 0;
+    position: relative;
+  }
+  .thanksto--container .heart-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .heart {
+    fill: rgba(204, 42, 93, 1);
+    width: 100px;
+    height: 100px;
+    z-index: 0;
+  }
+  .thanksto--container .content {
+    position: relative;
   }
 
   .members {
