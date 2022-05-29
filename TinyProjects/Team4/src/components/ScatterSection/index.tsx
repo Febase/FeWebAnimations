@@ -62,7 +62,7 @@ export function ScatterSection(): React.ReactElement {
             <p className="role">Leader · Intro </p>
           </div>
         </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/wooooooood">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/na-reum">
           <div className="members--item">
             <p className="name">JH</p>
             <p className="role">Speaker</p>
@@ -80,9 +80,6 @@ export function ScatterSection(): React.ReactElement {
 }
 
 const Section = styled(motion.section)`
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
-    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    sans-serif;
   text-align: center;
   padding: 230px 0;
   background-color: #000;
