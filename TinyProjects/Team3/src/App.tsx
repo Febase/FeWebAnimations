@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import WonjongText from "./WonjongText";
 
 function App() {
   const [word, setWord] = useState<string>('');
@@ -14,7 +15,8 @@ function App() {
         <option value="junseong">준성</option>
       </select>
       <input className="text-input" type="text" onChange={e => setWord(e.target.value)}/>
-      <p className={type}>{word}</p>
+      {type !== 'wonjong' && <p className={type}>{word}</p> }
+      {type === 'wonjong' && <WonjongText text={word} />}
     </div>
   );
 }
