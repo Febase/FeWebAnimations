@@ -51,14 +51,16 @@ export function IntroSection(): React.ReactElement {
   );
 }
 
-const Section = styled(motion.section)<{height: string}>`
+const Section = styled(motion.section)<{ height: string }>`
   position: relative;
   background: linear-gradient(95.06deg, rgb(130, 128, 227) 2.38%, rgb(85, 144, 237) 100.44%);
   height: ${({ height }) => height};
+  overflow: hidden;
+
   &:before {
-    background:url(https://2021.feconf.kr/static/noise-c0e6992315ac6e9234d9ee3bb56336b1.png) repeat;
+    background: url(https://2021.feconf.kr/static/noise-c0e6992315ac6e9234d9ee3bb56336b1.png) repeat;
     background-size: 100% 100vh;
-    content: "";
+    content: '';
     height: 100%;
     mix-blend-mode: soft-light;
     pointer-events: none;
@@ -68,7 +70,7 @@ const Section = styled(motion.section)<{height: string}>`
 `;
 
 const MoonCircle = styled.div`
-  background: linear-gradient(#8faeff,rgba(116,155,255,0));
+  background: linear-gradient(#8faeff, rgba(116, 155, 255, 0));
   border-radius: 50%;
   height: 80vmax;
   pointer-events: none;
