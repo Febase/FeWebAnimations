@@ -15,8 +15,7 @@ const Type1: React.FC<Type1Props> = ({ colors = defaultColors }) => {
   const [isIndicatorAnimated, setIsIndicatorAnimated] = React.useState<boolean>(false);
   const [isItemAnimated, setIsItemAnimated] = React.useState<boolean>(false);
 
-  const prevPositionX = React.useRef<number>(0);
-  const [positionX, setPositionX] = React.useState<number>(prevPositionX.current);
+  const [positionX, setPositionX] = React.useState<number>(0);
 
   const handleClickItem: React.MouseEventHandler<HTMLButtonElement> =
     (e) => {

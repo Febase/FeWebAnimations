@@ -9,8 +9,7 @@ const Type2: React.FC = () => {
   const [isIndicatorAnimated, setIsIndicatorAnimated] = React.useState<boolean>(false);
   const [isItemAnimated, setIsItemAnimated] = React.useState<boolean>(false);
 
-  const prevPositionX = React.useRef<number>(ITEM_GAP);
-  const [positionX, setPositionX] = React.useState<number>(prevPositionX.current);
+  const [positionX, setPositionX] = React.useState<number>(ITEM_GAP);
 
   const handleClickItem: React.MouseEventHandler<HTMLButtonElement> =
     (e) => {
