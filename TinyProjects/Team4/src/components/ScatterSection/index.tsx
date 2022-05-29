@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { Confetti } from './Confetti';
 
 /**
  *
@@ -12,6 +13,8 @@ export function ScatterSection(): React.ReactElement {
       onViewportEnter={(en) => console.log('ScatterSection viewport enter', en)}
       onViewportLeave={(en) => console.log('ScatterSection viewport leave', en)}
     >
+      <Confetti />
+
       <div className="heading--container">
         <motion.h2 whileInView={{ color: '#fff' }}>
           2022를 함께 맞이 할
@@ -52,21 +55,21 @@ export function ScatterSection(): React.ReactElement {
           </motion.p>
         </div>
       </div>
-      <div className="members">
+      <div className="members--container">
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/walt1992">
-          <div className="members--container">
+          <div className="members--item">
             <p className="name">MS</p>
             <p className="role">Leader · Intro </p>
           </div>
         </a>
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/wooooooood">
-          <div className="members--container">
+          <div className="members--item">
             <p className="name">JH</p>
             <p className="role">Speaker</p>
           </div>
         </a>
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/wooooooood">
-          <div className="members--container">
+          <div className="members--item">
             <p className="name">G0</p>
             <p className="role">Scatter</p>
           </div>
@@ -83,6 +86,7 @@ const Section = styled(motion.section)`
   text-align: center;
   padding: 230px 0;
   background-color: #000;
+  position: relative;
 
   @media (max-width: 1024px) {
     padding: 80px 0;
@@ -115,24 +119,26 @@ const Section = styled(motion.section)`
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
+    width: 100px;
+    height: 100px;
   }
   .heart {
     fill: rgba(204, 42, 93, 1);
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     z-index: 0;
   }
   .thanksto--container .content {
     position: relative;
   }
 
-  .members {
+  .members--container {
     display: flex;
     gap: 8px;
     justify-content: center;
   }
 
-  .members--container {
+  .members--item {
     width: 200px;
   }
 
@@ -142,5 +148,54 @@ const Section = styled(motion.section)`
   }
   .role {
     color: #ccc;
+  }
+
+  @keyframes confetti-slow {
+    0% {
+      transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+    100% {
+      transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg);
+    }
+  }
+  @keyframes confetti-medium {
+    0% {
+      transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+    100% {
+      transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg);
+    }
+  }
+  @keyframes confetti-fast {
+    0% {
+      transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+    100% {
+      transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg);
+    }
+  }
+  .confetti-container {
+    perspective: 700px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .confetti {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    border-radius: 0;
+  }
+  .confetti--animation-slow {
+    animation: confetti-slow 2.25s linear 1 forwards;
+  }
+  .confetti--animation-medium {
+    animation: confetti-medium 1.75s linear 1 forwards;
+  }
+  .confetti--animation-fast {
+    animation: confetti-fast 1.25s linear 1 forwards;
   }
 `;
