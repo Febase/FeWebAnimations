@@ -5,20 +5,19 @@ import reportWebVitals from './reportWebVitals';
 
 const globalStyle = css`
   body {
-    margin: 0
+    margin: 0;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
+      'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+      sans-serif;
   }
-
 `;
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <>
     <Global styles={globalStyle} />
     <App />
-  </>
-  ,
+  </>,
 );
 
 // If you want to start measuring performance in your app, pass a function
