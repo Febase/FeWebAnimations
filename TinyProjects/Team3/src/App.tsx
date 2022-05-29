@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Tremble from './components/Tremble';
 
 function App() {
   const [word, setWord] = useState<string>('');
@@ -15,6 +16,7 @@ function App() {
       </select>
       <input className="text-input" type="text" onChange={e => setWord(e.target.value)}/>
       <p className={type}>{word}</p>
+      <Tremble word={word} />
     </div>
   );
 }
