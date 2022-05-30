@@ -18,3 +18,11 @@
   color: red;
   font-size: 20px;
 }
+
+.refresh {
+  background: purple;
+}
+
+.spin {
+  display: inline-block;
+}
