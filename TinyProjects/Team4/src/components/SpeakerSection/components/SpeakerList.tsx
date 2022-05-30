@@ -1,6 +1,5 @@
 /* eslint-disable no-confusing-arrow */
 /* eslint-disable implicit-arrow-linebreak */
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import SpeakerListItem from './SpeakerListItem';
 
@@ -11,7 +10,10 @@ type SpeakerListProps = {
 function SpeakerList({ order, threshold }: SpeakerListProps): React.ReactElement {
   const ratio = (threshold - 2.5) * 40;
   return (
-    <List order={order} style={{ transform: order ? `translateX(${ratio}%)` : `translateX(calc(0% - ${ratio}%))` }}>
+    <List
+      order={order}
+      style={{ transform: order ? `translate3d(${ratio}%,0,0)` : `translate3d(calc(0% - ${ratio}%),0,0)` }}
+    >
       <SpeakerListItem />
       <SpeakerListItem />
       <SpeakerListItem />
