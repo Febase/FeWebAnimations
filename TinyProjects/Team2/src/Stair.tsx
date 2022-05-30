@@ -58,6 +58,11 @@ const stairLines: StairLineProps[] = [
     //병헌
     emptySpan: 2,
     filledSpan: 4,
+    whileHover: {
+      filter: `hue-rotate(360deg) brightness(200%)`,
+      transition: { duration: 0.1, repeat: 1 },
+      textShadow: `0px 0px 24px ${true ? "#853e18" : "#ffaa22"}`,
+    }
   },
   {
     emptySpan: 1,
