@@ -29,7 +29,7 @@ export function MouseTracking({ threshold, width, height }: Props): React.ReactE
       ctx.save();
       ctx.globalCompositeOperation = 'destination-out';
       ctx.beginPath();
-      ctx.arc(x, y, Math.max(200, (width / 2) * t * 2), 0, 2 * Math.PI, false);
+      ctx.arc(x, window.scrollY + y, Math.max(200, (width / 2) * t * 2), 0, 2 * Math.PI, false);
       ctx.fill();
       ctx.restore();
     });
@@ -41,7 +41,7 @@ export function MouseTracking({ threshold, width, height }: Props): React.ReactE
 
   useEffect(() => {
     const mouseMove = (ev: MouseEvent): void => {
-      setMousePos({ x: ev.offsetX, y: ev.offsetY });
+      setMousePos({ x: ev.clientX, y: ev.clientY });
     };
     canvasRef.current?.addEventListener('mousemove', mouseMove);
     return () => canvasRef.current?.removeEventListener('mousemove', mouseMove);

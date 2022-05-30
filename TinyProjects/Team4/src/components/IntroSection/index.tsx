@@ -15,11 +15,10 @@ export function IntroSection(): React.ReactElement {
   const [threshold, setThreshold] = useState<number>(0);
   const { scrollY } = useViewportScroll();
 
-  console.log('IntroSection intersection ratio', threshold);
   return (
     <>
       <Section
-        height="1500px"
+        height="2500px"
         ref={ref}
         whileInView={{ backgroundColor: '#eee' }}
         onViewportEnter={(en) => {
@@ -42,7 +41,7 @@ export function IntroSection(): React.ReactElement {
       >
         <MoonCircle />
         <ConferenceTitle threshold={threshold} />
-        <MouseTracking width={window.innerWidth} height={1500} threshold={threshold} />
+        <MouseTracking width={window.innerWidth} height={2500} threshold={threshold} />
       </Section>
       <Section height="1000px">
         <ConferenceDescription />
@@ -55,7 +54,6 @@ const Section = styled(motion.section)<{ height: string }>`
   position: relative;
   background: linear-gradient(95.06deg, rgb(130, 128, 227) 2.38%, rgb(85, 144, 237) 100.44%);
   height: ${({ height }) => height};
-  overflow: hidden;
 
   &:before {
     background: url(https://2021.feconf.kr/static/noise-c0e6992315ac6e9234d9ee3bb56336b1.png) repeat;
@@ -70,13 +68,18 @@ const Section = styled(motion.section)<{ height: string }>`
 `;
 
 const MoonCircle = styled.div`
-  background: linear-gradient(#8faeff, rgba(116, 155, 255, 0));
-  border-radius: 50%;
-  height: 80vmax;
-  pointer-events: none;
-  position: absolute;
-  right: -20vmax;
-  top: -30vmax;
-  width: 80vmax;
+  position: sticky;
+  top: 0%;
+  &:before {
+    content: '';
+    background: linear-gradient(#8faeff, rgba(116, 155, 255, 0));
+    border-radius: 50%;
+    height: 80vmax;
+    pointer-events: none;
+    position: absolute;
+    right: -20vmax;
+    top: -30vmax;
+    width: 80vmax;
+  }
   z-index: 0;
 `;
