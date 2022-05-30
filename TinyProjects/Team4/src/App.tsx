@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { IntroSection } from './components/IntroSection';
 import { ScatterSection } from './components/ScatterSection';
 import { SpeakerSection } from './components/SpeakerSection';

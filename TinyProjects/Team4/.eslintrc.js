@@ -1,8 +1,8 @@
 module.exports = {
   extends: [
+    'airbnb',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'airbnb',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
   ],
@@ -10,6 +10,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'comma-spacing': ['error', { before: false, after: true }],
     'no-trailing-spaces': 'error',
+    'no-shadow': ['off'],
     'key-spacing': ['error', { afterColon: true }],
     'object-curly-spacing': ['error', 'always'],
     'object-curly-newline': [
@@ -21,14 +22,20 @@ module.exports = {
         ExportDeclaration: { multiline: true, consistent: true },
       },
     ],
+    'no-use-before-define': ['error', {
+      functions: false,
+      variables: false,
+    }],
     'react/jsx-props-no-multi-spaces': 2,
     'react/jsx-filename-extension': [1, { extensions: ['.tsx', '.jsx'] }],
     'react/jsx-props-no-spreading': ['off'],
+    'react/no-array-index-key': ['warn'],
     '@typescript-eslint/explicit-function-return-type': [1, {
       allowExpressions: true,
     }],
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-function': ['off'],
+
     'import/prefer-default-export': ['off'],
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: true,
