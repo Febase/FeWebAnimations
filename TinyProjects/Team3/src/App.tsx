@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, { useState } from 'react';
+import './App.css';
+import Tremble from './components/Tremble';
 import Spin from "./components/Spin";
 
 function App() {
@@ -23,9 +24,10 @@ function App() {
         className="text-input"
         type="text"
         onChange={(e) => setWord(e.target.value)}
-      />
-      <Spin />
+      /
       <p className={type}>{word}</p>
+      <Spin />
+      <Tremble word={word} />
     </div>
   );
 }
