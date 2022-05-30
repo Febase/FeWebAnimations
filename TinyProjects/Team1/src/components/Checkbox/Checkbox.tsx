@@ -1,19 +1,7 @@
 // https://codepen.io/aaroniker/pen/ZEpEvdz
 
 import {styled, globalCss} from "@stitches/react";
-import {motion} from "framer-motion";
-
-const Grid = styled(motion.div, {
-    display: "grid",
-    gridGap: "24px 32px",
-    gridTemplateColumns: "repeat(3, auto)",
-    gridTemplateRows: "repeat(3, auto)",
-    gridAutoFlow: "column",
-    '.last': {
-        gridColumn: "1 / 4",
-        gridRow: "3",
-    }
-})
+import {animate, motion, useCycle} from "framer-motion";
 
 const CheckboxLabel = styled(motion.label, {
     display: 'table',
@@ -50,31 +38,18 @@ const CheckboxLabel = styled(motion.label, {
             }
         },
         '& + svg': {
-            '--dot-x': '14px',
-            '--dot-y': '-14px',
-            '--dot-s': 1,
             '--tick-offset': '20.5px',
             '--tick-array': '16.5px',
             '--tick-s': 1,
-            '--drop-s': 1,
             '.tick': {
                 fill: 'none',
                 strokeWidth: '3px',
                 strokeLinecap: 'round',
                 strokeLinejoin: 'round',
                 stroke: 'var(--c-active-inner)',
-                strokeDasharray: 'var(--tick-array) 33px',
-                strokeDashoffset: 'var(--tick-offset)',
+                strokeDasharray: '33px',
                 transformOrigin: '10.5px 16px',
                 transform: 'scale(var(--tick-s)) translateZ(0)'
-            },
-            '.dot': {
-                transformOrigin: '10.5px 15.5px',
-                transform: 'translate(var(--dot-x), var(--dot-y)) scale(var(--dot-s)) translateZ(0)',
-            },
-            '.drop': {
-                transformOrigin: '25px -1px',
-                transform: 'scale(var(--drop-s)) translateZ(0)'
             }
         }
     },
@@ -107,29 +82,45 @@ const globalStyles = globalCss({
     }
 });
 
-function Checkbox({size = 9}: Props) {
-    const theta = 360 / size;
-    const cellSize = 190;
-    const radius = Math.round((cellSize / 2) / Math.tan(Math.PI / size));
+const variants = {
+    check: {},
+    notCheck: {}
+};
 
-    const arrToSize = new Array(size).fill(0).map((arr, i) => i);
-    const getTransformsArr = (i: number) => {
-        const ratateNum = new Array(size + 1).fill(0).map((arr, i) => i);
-        return ratateNum.map(rotate => `rotateY(${theta * (i + rotate)}deg) translateZ(${radius}px)`)
-    }
+function Checkbox({}: Props) {
+    const [isCheck, toggleCheck] = useCycle(false, true);
 
     globalStyles();
 
     return (
-        <Grid>
-            <CheckboxLabel>
-                <input type="checkbox"/>
-                <svg width={24} height={24} >
-                    <path className="tick" d="M4.5 10L10.5 16L24.5 1"/>
-                    <circle className="dot" cx="10.5" cy="15.5" r="1.5"/>
-                </svg>
-            </CheckboxLabel>
-        </Grid>
+
+        <CheckboxLabel>
+            <motion.input
+                className="input"
+                type="checkbox"
+                animate={isCheck ? "check" : "notCheck"}
+                onChange={() => toggleCheck()}
+                variants={variants}
+                initial={true}
+            />
+            <motion.svg className="svg" viewBox={"0 0 24 24"}
+                        animate={isCheck ? "check" : "notCheck"}
+                        variants={{
+                            check: {
+                                strokeDashoffset: 76.5,
+                                strokeDasharray: 16.5,
+                                transition : {
+                                    type : "spring"
+                                }
+                            },
+                            notCheck: {
+                                strokeDashoffset: 36,
+                                strokeDasharray: 16.5
+                            }
+                        }}>
+                <motion.path className="tick" d="M4.5 10L10.5 16L24.5 1"/>
+            </motion.svg>
+        </CheckboxLabel>
     )
 };
 
