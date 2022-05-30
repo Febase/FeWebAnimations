@@ -137,3 +137,5 @@ storybook-static/
 /glamai-efs
 
 *.pem
+
+yarn.lock
