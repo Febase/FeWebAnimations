@@ -6,11 +6,50 @@
 
 ## 주제
 
-* Framer Motion의 사용에 익숙해지는 시간 갖기
+* ~~Framer Motion의 사용에 익숙해지는 시간 갖기~~
   * 1주차 - 각자 Framer Motion을 활용하여 사용법을 익히고 그 결과를 공유합니다.
     * 박민식 - https://codesandbox.io/s/brave-mclean-ffei6w?file=/src/components/MotionValue.tsx
     * 임지영 - https://codesandbox.io/s/framer-motion-2-layout-animations-forked-zson3o?file=/src/App.js:2031-2173
     * 이재훈 - https://github.com/na-reum/page-transition-example
-  * 2주차 - Framer 사이트에서 찾아볼 수 있는 다양한 컴포넌트 중 하나를 골라 직접 구현해봅니다 ([참고](https://www.framer.com/examples/social-app/))
+  * 2주차 - ~~Framer 사이트에서 찾아볼 수 있는 다양한 컴포넌트 중 하나를 골라 직접 구현해봅니다 ([참고](https://www.framer.com/examples/social-app/))~~
+
+  * 계획 수정 - 애니메이션이 적용된 간단한 페이지를 함께 구현해 봅니다.
+    * [2021 FE Conf 홈페이지](https://2021.feconf.kr/)
 
 
+
+## 프로젝트 설명
+
+### 활용 기술
+
+* CRA
+* Framer motion
+* P5
+* emotion
+
+### 담당역할
+
+* Intro Session - 박민식
+  * 스크롤 이벤트와 canvas를 활용한 마우스 하이라이팅 기능
+  * 텍스트 애니메이션 효과 
+* Speaker Session - 이재훈
+  * p5를 활용한 회전하는 3d 입체 구
+  * 스크롤 이벤트에 반응하는 발표자 리스트 노출
+  * 텍스트 애니메이션 효과
+* Scatter Session - 임지영
+  * 떨어지는 꽃가루 효과
+  * 하트 모양의 아이콘으로 Beat 애니메이션 효과
+
+
+### 프로젝트 회고
+
+* 임지영
+
+* 이재훈
+
+* 박민식
+  * 중간에 주제가 바뀌면서 걱정이 많았지만, 그래도 초기 목표한 바는 완성해서 나름 만족스럽다.
+  * 프로젝트 기간동안 개인적으로 일이 많아 작업을 급하게 했던게 아쉬운 포인트
+  * 다음 프로젝트때는 좀 더 집중해서 더 좋은 결과물을 만들어내고 또 애니메이션과 더 많이 친해지는 계기가 되면 좋겠다.
+  * 프로젝트 중간 모임에서 팀원분들과 이것저것 이야기나누는 시간을 가졌는데 재미있는 시간이었다. 종종 이렇게 커피챗하면 좋을 것 같아요 :) 
+  
