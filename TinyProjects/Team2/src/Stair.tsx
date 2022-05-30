@@ -7,7 +7,6 @@ import {
   useViewportScroll,
   VariantLabels,
 } from "framer-motion";
-import { text } from "node:stream/consumers";
 
 const names = [
   "BONHAENG LEE",
