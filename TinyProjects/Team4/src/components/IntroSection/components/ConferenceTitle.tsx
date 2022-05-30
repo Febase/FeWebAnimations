@@ -14,7 +14,6 @@ const variants = {
       // repeat: Infinity
     },
   }),
-
 };
 
 export function ConferenceTitle({ threshold }: {threshold: number}) {
