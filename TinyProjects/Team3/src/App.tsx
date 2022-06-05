@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
+import Tremble from './components/Tremble';
+import Spin from "./components/Spin";
+import WonjongText from "./WonjongText";
 
 function App() {
-  const [word, setWord] = useState<string>('');
-  const [type, setType] = useState<string>('wonjong')
+  const [word, setWord] = useState<string>("");
+  const [type, setType] = useState<string>("wonjong");
   return (
     <div className="app">
       <p>word animation</p>
@@ -14,7 +17,10 @@ function App() {
         <option value="junseong">준성</option>
       </select>
       <input className="text-input" type="text" onChange={e => setWord(e.target.value)}/>
-      <p className={type}>{word}</p>
+      {type === 'jaewook' && <p className={type}>{word}</p>}
+      {type === 'wonjong' && <WonjongText text={word} />}
+      {type === 'deokhee' && <Spin />}
+      {type === 'junseong' && <Tremble word={word} />}
     </div>
   );
 }
