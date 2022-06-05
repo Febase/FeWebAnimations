@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
+import Tremble from "./components/Tremble";
 import Spin from "./components/Spin";
+import WonjongText from "./WonjongText";
 
 function App() {
   const [word, setWord] = useState<string>("");
@@ -24,8 +26,10 @@ function App() {
         type="text"
         onChange={(e) => setWord(e.target.value)}
       />
-      <Spin />
-      <p className={type}>{word}</p>
+      {type === "jaewook" && <p className={type}>{word}</p>}
+      {type === "wonjong" && <WonjongText text={word} />}
+      {type === "deokhee" && <Spin />}
+      {type === "junseong" && <Tremble word={word} />}
     </div>
   );
 }
