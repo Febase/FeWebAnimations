@@ -12,13 +12,17 @@ const pathVariants = {
   }
 };
 
-export const IconStyled = styled(motion.svg)`
+export const IconStyled = styled(motion.svg)<{color?: string, order?: number}>`
   width: 100px;
   overflow: visible;
   fill: none;
 
-  stroke: red;
+  stroke: ${props => props.color || 'red'};
   stroke-width: 10px;
+  ${props => props.order && `
+    position: absolute;
+  `}
+  z-index: ${props => props.order}
 `;
 
 export const IconPathStyled = styled(motion.path).attrs(() => ({

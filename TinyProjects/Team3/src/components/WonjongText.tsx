@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
+import AlphabetAG from "./AlphabetAG";
 
 // Word wrapper
 const Wrapper = (props: any) => {
@@ -7,7 +8,7 @@ const Wrapper = (props: any) => {
   return <span className="word-wrapper">{props.children}</span>;
 };
 
-const WonjongText = ({text}: {text: string}) => {
+const WonjongText = ({text}: { text: string }) => {
   const [replay, setReplay] = useState(true);
 
   useEffect(() => {
@@ -22,12 +23,12 @@ const WonjongText = ({text}: {text: string}) => {
     hidden: {
       y: "200%",
       color: "#0055FF",
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 }
+      transition: {ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85}
     },
     visible: {
       y: 0,
       color: "#FF0088",
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
+      transition: {ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75}
     }
   };
 
@@ -70,6 +71,7 @@ const WonjongText = ({text}: {text: string}) => {
               // Wrap each word in the Wrapper component
               <Wrapper key={index}>
                 {words[index].flat().map((element: string, index: number) => {
+                  console.log(element);
                   return (
                     <span
                       style={{
@@ -78,13 +80,8 @@ const WonjongText = ({text}: {text: string}) => {
                       }}
                       key={index}
                     >
-                  <motion.span
-                    style={{ display: "inline-block" }}
-                    variants={item}
-                  >
-                    {element}
-                  </motion.span>
-                </span>
+                    <AlphabetAG alphabet={element}/>
+                  </span>
                   );
                 })}
               </Wrapper>
