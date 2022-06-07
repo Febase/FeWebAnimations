@@ -338,31 +338,6 @@ const AlphabetAG = ({alphabet}: { alphabet: string }) => {
 
   }
   return null;
-  // return (
-  //   <div className="container">
-  //     <IconStyled xmlns="http://www.w3.org/2000/svg" viewBox="0 0 296 296">
-  //       <IconPathStyled
-  //         d="M75,5
-  //          l-60,0 0,90
-  //          M15,45
-  //          l50,0"
-  //         transition={{
-  //           default: {duration: 2, ease: "easeInOut", repeat: Infinity}
-  //         }}
-  //       />
-  //     </IconStyled>
-  //     <IconStyled xmlns="http://www.w3.org/2000/svg" viewBox="0 0 296 296">
-  //       <IconPathStyled
-  //         d="M60,10
-  //          C-10,0 -10,100 60,90
-  //          l0,-40 -20,0"
-  //         transition={{
-  //           default: {duration: 2, ease: "easeInOut", repeat: Infinity}
-  //         }}
-  //       />
-  //     </IconStyled>
-  //   </div>
-  // )
 };
 
 export default AlphabetAG;
