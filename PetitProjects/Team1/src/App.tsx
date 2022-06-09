@@ -6,10 +6,10 @@ import JunSeong from "./components/JunSeong";
 function App(): JSX.Element {
   return (
     <div className="App">
-      <Doho />
       <BonHaeng />
-      <ByeongHeon />
       <JunSeong />
+      <Doho />
+      <ByeongHeon />
     </div>
   );
 }
