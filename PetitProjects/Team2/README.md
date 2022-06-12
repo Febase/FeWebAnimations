@@ -38,4 +38,6 @@
 ### :sparkles: 최종 결정된 레퍼런스  https://rallyinteractive.com/#luxe-valet
 
 
-
+## 적용기술
+* React
+* Typescript
