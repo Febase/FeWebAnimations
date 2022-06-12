@@ -5,7 +5,7 @@
 
 ## 일정
 * 2022.06.09. 레퍼런스 공유 및 주제선정
-* 2022.06.12. 기능 분석 및 (오프라인 미팅)
+* 2022.06.12. 기능 분석 및 개발, 자기 소개 컨텐츠 구상 (오프라인 미팅)
 * 2022.06.13. 1차 발표
 * TBD
 
@@ -37,7 +37,11 @@
 
 ### :sparkles: 최종 결정된 레퍼런스  https://rallyinteractive.com/#luxe-valet
 
+## 테마
+인연
 
 ## 적용기술
 * React
 * Typescript
+* styled-components
+* Framer motion

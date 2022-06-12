@@ -1,18 +1,13 @@
 import React from 'react';
-import CanvasWrapper from './components/CanvasWrapper'
 import Logo from './components/Logo'
-import MenuButton from './components/MenuButton'
-import Menu from './components/Menu'
 import Main from './components/Main'
 import PageContent from './components/PageContent'
-
+import Ribbon from './components/Ribbon';
 function App() {
   return (
     <div>
-      <CanvasWrapper />
+      <Ribbon color='red'/>
       <Logo />
-      <MenuButton />
-      <Menu />
       <Main>
         <PageContent />
       </Main>

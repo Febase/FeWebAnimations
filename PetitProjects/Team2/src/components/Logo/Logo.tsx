@@ -1,5 +1,5 @@
 const Logo: React.FC = () => {
-  return (<div>Logo</div>)
+  return (<div>인연</div>)
 }
 
 export default Logo;
