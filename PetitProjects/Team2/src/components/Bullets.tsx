@@ -1,4 +1,4 @@
-import { intro } from "./introduce"
+import { intro} from '../constants/introduce'
 import styled from "styled-components"
 
 const BulletsList = styled.ul`

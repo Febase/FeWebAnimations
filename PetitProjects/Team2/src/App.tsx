@@ -1,7 +1,8 @@
 import React from 'react';
 import Logo from './components/Logo'
 import Main from './components/Main'
-import PageContent from './components/PageContent'
+import Pages from './components/Pages'
+import Bullets from './components/Bullets'
 import Ribbon from './components/Ribbon';
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <Ribbon color='red'/>
       <Logo />
       <Main>
-        <PageContent />
+        <Bullets/>
+        <Pages />
       </Main>
     </div>
   );

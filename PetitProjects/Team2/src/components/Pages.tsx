@@ -1,8 +1,11 @@
-import { intro } from './introduce';
+import { intro } from '../constants/introduce'
+
 import styled from "styled-components"
 
 const PageList = styled.ul``
-const PageItem = styled.li``
+const PageItem = styled.li`
+  height: 100v
+`
 const PageTitle = styled.h3`
   font-size: 72px;
   margin: 0 0 35px 0;

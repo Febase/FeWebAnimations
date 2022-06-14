@@ -8,7 +8,7 @@ const Svg = styled.svg`
   g:nth-child(odd) {
     opacity: 0.6
   }
-  zIndex: -1
+  z-index: -1;
 `
 
 const Ribbon = ({color}: {color: string}) => {
