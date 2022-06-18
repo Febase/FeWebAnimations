@@ -8,11 +8,9 @@ function App() {
   return (
     <div>
       <Ribbon color='red'/>
-      <Logo />
-      <Main>
-        <Bullets/>
-        <Pages />
-      </Main>
+      {/* <Logo /> */}
+      <Bullets/>
+      <Pages />
     </div>
   );
 }
