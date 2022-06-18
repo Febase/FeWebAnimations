@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 import styled from "styled-components";
 
 const Svg = styled(motion.svg)`
@@ -12,8 +12,13 @@ const Svg = styled(motion.svg)`
 `;
 
 const Ribbon = ({ color }: { color: string }) => {
-  // const { scrollYProgress, scrollY } = useViewportScroll();
+  const { scrollYProgress, scrollY } = useViewportScroll();
   // const background = useTransform(scrollYProgress, )
+  const backgroundFramer = useTransform(
+    scrollYProgress,
+    [0, 0.33, 0.66, 1],
+    ["#F2B035", "#F28963", "#049DD9", "#F2167D"]
+  );
 
   return (
     <Svg
@@ -23,8 +28,8 @@ const Ribbon = ({ color }: { color: string }) => {
       initial={{
         x: "-50%",
       }}
+      style={{ fill: backgroundFramer }}
       animate={{
-        backgroundColor: ["#F2B035", "#F28963", "#049DD9", "#F2167D"],
         y: [-100, 0, 100, 200, 300, 400],
       }}
       transition={{ duration: 200, ease: "linear" }}
