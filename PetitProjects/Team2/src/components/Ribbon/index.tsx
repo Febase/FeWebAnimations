@@ -27,7 +27,7 @@ const Ribbon = ({ color }: { color: string }) => {
         backgroundColor: ["#F2B035", "#F28963", "#049DD9", "#F2167D"],
         y: [-100, 0, 100, 200, 300, 400],
       }}
-      transition={{ duration: 4, ease: "linear" }}
+      transition={{ duration: 200, ease: "linear" }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
