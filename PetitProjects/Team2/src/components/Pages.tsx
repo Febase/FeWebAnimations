@@ -10,6 +10,7 @@ const PageList = styled.ul`
   position: relative;
   padding: 0;
   transition: all 0.5s;
+  scroll-behavior: smooth;
 `;
 const PageItem = styled(motion.li)`
   position: relative;
@@ -94,6 +95,7 @@ const Pages = () => {
       }
 
       indexRef.current = index;
+      // window.location.href = "#" + intro[indexRef.current].first;
       window.history.pushState(null, "", "#" + intro[indexRef.current].first);
       smoothMoveTo(indexRef.current * window.innerHeight);
     }, 700),
@@ -105,6 +107,10 @@ const Pages = () => {
   }, []);
 
   useEffect(() => {
+    window.addEventListener("hashchange", () => {
+      console.log("changed!!!!");
+    });
+
     listRef.current?.addEventListener("wheel", preventScrollEvent);
     listRef.current?.addEventListener("wheel", changeCurrentSection);
 
