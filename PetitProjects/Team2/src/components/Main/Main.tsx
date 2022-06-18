@@ -5,7 +5,6 @@ interface Props {
 const Main: React.FC<Props> = ({ children }) => {
   return (
     <div>
-      <p>Main</p>
       <div>{children}</div>
     </div>
   );

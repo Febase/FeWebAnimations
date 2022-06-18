@@ -16,6 +16,8 @@ const BulletsList = styled.ul`
 const BulletItem = styled.li<{focused: boolean}>`
 	color: #1b1b1b;
 	padding: 12px;
+	margin: 50px;
+	display: block;
 	position: relative;
 	font-size: ${({focused}) => focused ? '257px' : '16px' };
 `
