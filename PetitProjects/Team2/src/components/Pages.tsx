@@ -1,8 +1,8 @@
 import { Intro, intro } from "../constants/introduce";
 import styled from "styled-components";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
-import { throttle } from "lodash";
+import { useMemo, useCallback, useEffect, useRef, useState } from "react";
+import { debounce } from "lodash";
 
 const PageList = styled.ul`
   padding: 0;
@@ -10,7 +10,7 @@ const PageList = styled.ul`
   margin-left: 33.78378378%;
   position: relative;
   padding: 0;
-  transition: filter 0.5s;
+  transition: all 0.5s;
 `;
 const PageItem = styled(motion.li)`
   position: relative;
@@ -60,37 +60,74 @@ const Pages = () => {
   //   }
   // })
 
-  // const wheelEvent = useCallback(throttle((ev) => {
+  // const wheelEvent = useCallback(debounce((ev) => {
 
   // }, 500), [])
 
-  const scrollDown = () => {
-    console.log("scrollDown");
-  };
-  const scrollUp = () => {
-    console.log("scrollUp");
-  };
+  const ulRef = useRef<HTMLUListElement>(null);
+
+  const throttleScrollDown = useMemo(
+    () =>
+      debounce((index) => {
+        console.log("scroll down debounce");
+        if (ulRef.current && index < intro.length) {
+          console.log(">>> index : ", index);
+          ulRef.current.style.top =
+            -document.documentElement.clientHeight * index + "px";
+          setIndex((prev) => prev + 1);
+        }
+      }, 100),
+    []
+  );
+
+  const handleScrollDown = useCallback(
+    (index: number) => {
+      // console.log("handleScrollDown");
+      throttleScrollDown(index);
+    },
+    [throttleScrollDown]
+  );
+
+  const throttleScrollUp = useMemo(
+    () =>
+      debounce((index) => {
+        console.log("scroll up debounce");
+        if (ulRef.current && index > 1) {
+          console.log(">>> index : ", index);
+          ulRef.current.style.top =
+            -document.documentElement.clientHeight * (index - 2) + "px";
+          setIndex((prev) => prev - 1);
+        }
+      }, 100),
+    []
+  );
+
+  const handleScrollUp = useCallback(
+    (index: number) => {
+      // console.log("handleScrollUp");
+      throttleScrollUp(index);
+    },
+    [throttleScrollUp]
+  );
 
   useEffect(() => {
-    window.addEventListener("wheel", () => {
-      // window.scrollTo(0, 0);
-    });
+    // window.addEventListener("wheel", () => {
+    // window.scrollTo(0, 0);
+    // });
     window.addEventListener("wheel", (e: WheelEvent) => {
-      console.log(e);
       const event = e as any;
-      console.log(event.wheelDelta);
       if (event.wheelDelta < 0) {
-        scrollDown();
+        handleScrollDown(index);
       } else {
-        scrollUp();
+        handleScrollUp(index);
       }
     });
-  }, []);
+  }, [handleScrollDown, handleScrollUp, index]);
 
   // console.log(section);
 
   return (
-    <PageList>
+    <PageList ref={ulRef}>
       {intro.map((item) => (
         <PageItem
           key={item.fullName}
