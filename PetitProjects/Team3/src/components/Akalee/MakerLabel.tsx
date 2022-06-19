@@ -53,5 +53,6 @@ const Anchor = styled('a', {
   color: 'var(--color-maker)',
   fontSize: '1rem',
   textDecoration: 'none',
+  inlineSize: 'min-content',
 });
 
