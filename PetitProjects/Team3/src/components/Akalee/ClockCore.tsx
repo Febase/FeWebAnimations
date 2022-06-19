@@ -34,9 +34,9 @@ const ClockCore: React.FC<ClockCoreProps> = ({
         size={size * RELATIVE_MINUTE_HAND_SIZE}
       />
       <ClockHand
-        time={hour}
+        time={(hour >= 12 ? hour - 12 : hour)}
         min={0}
-        max={23}
+        max={11}
         size={size * RELATIVE_HOUR_HAND_SIZE}
       />
       <HandDot />
