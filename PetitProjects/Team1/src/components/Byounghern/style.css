@@ -1,0 +1,16 @@
+.bh_background {
+  width: 100%;
+  object-fit: cover;
+}
+
+.namecard-container {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.namecard {
+  padding: 1em;
+  background-color: #9fb9fc;
+  border-radius: 0.6em;
+  width: fit-content;
+}
