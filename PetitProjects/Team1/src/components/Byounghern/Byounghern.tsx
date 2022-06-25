@@ -6,9 +6,11 @@ import "./style.css";
 function ByeongHeon() {
   return (
     <section>
-      <Background />
-      <NameCard />
-      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} />
+      <div style={{ paddingTop: "30vh" }}>
+        <Background />
+        <NameCard />
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} />
+      </div>
     </section>
   );
 }

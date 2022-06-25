@@ -10,22 +10,22 @@ function NameCard() {
 
   const cardVariants: Variants = {
     offscreen: {
-      y: 0
+      y: windowSize.winHeight
     },
     onscreen: {
-      y: -windowSize.winHeight / 2,
-      x: (1 * windowSize.winWidth) / 3,
+      y: 0,
+      x: windowSize.winWidth / 3,
       rotate: -10,
       transition: {
         type: "spring",
         bounce: 0.4,
-        duration: 0.4
+        duration: 1.4
       }
     }
   };
 
   return (
-    <motion.div className="namecard-container" initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 0.8 }}>
+    <motion.div className="namecard-container" initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 1 }}>
       <div style={{}} />
       <motion.div className="namecard" variants={cardVariants}>
         Byounghern (October 16th){" "}

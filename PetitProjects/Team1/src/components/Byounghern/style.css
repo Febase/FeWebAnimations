@@ -1,10 +1,17 @@
-.bh_background {
+.background-wrapper {
+  position: absolute;
   width: 100%;
+  height: 100%;
+}
+.background {
+  margin: auto;
+  position: relative;
   object-fit: cover;
+  width: 100%;
 }
 
 .namecard-container {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 600;
 }
 
