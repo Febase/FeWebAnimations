@@ -18,7 +18,8 @@
     "framer-motion": "^6.3.10",
     "jsdom": "^19.0.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-router-dom": "6"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
