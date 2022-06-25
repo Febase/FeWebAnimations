@@ -13,7 +13,9 @@ BTS는 Framer motion을 활용해 크게 두가지 이펙트를 통해 동작합
   - `useViewportScroll`
 
 결과물은 아래 동영상 또는 [데모 웹사이트](https://mellifluous-gnome-d255e2.netlify.app/)를 통해 확인할 수 있습니다.
-[](https://user-images.githubusercontent.com/9066602/175771832-b290405c-b2c4-4ab3-b19f-f21d25032ead.mp4)
+
+https://user-images.githubusercontent.com/9066602/175771832-b290405c-b2c4-4ab3-b19f-f21d25032ead.mp4
+
 (모바일 사이즈 대응 등의 반응형 작업은 포함되지 않았습니다. 충분히 큰 디스플레이에서 16:9 사이즈로 브라우저 크기를 이용해주세요.)
 
 ## 프로젝트 주제 선정 및 진행 내용
