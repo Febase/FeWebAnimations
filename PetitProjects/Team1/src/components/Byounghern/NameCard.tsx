@@ -1,4 +1,4 @@
-import { motion, Variants } from "framer-motion";
+import { motion, useDragControls, Variants } from "framer-motion";
 import React, { useState } from "react";
 import "./style.css";
 
@@ -25,7 +25,13 @@ function NameCard() {
   };
 
   return (
-    <motion.div className="namecard-container" initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 1 }}>
+    <motion.div
+      className="namecard-container"
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 1 }}
+      drag="x"
+      whileDrag={{ scale: 1.2 }}>
       <div style={{}} />
       <motion.div className="namecard" variants={cardVariants}>
         Byounghern (October 16th){" "}
