@@ -17,7 +17,9 @@ const G0 = () => {
         }}
       >
         <h1>G0</h1>
-        <p>Web Frontend Developer</p>
+        <p>
+          <span>Aesthetic</span> Web Frontend Developer
+        </p>
         <ul>
           <li>
             <BsLinkedin />
@@ -70,15 +72,23 @@ const Card = styled(motion.div, {
 
   '& h1': {
     fontSize: '3rem',
+    marginBottom: '0',
   },
 
   '& p': {
-    fontSize: '2rem',
+    fontSize: '1.75rem',
+    margin: 0,
+    padding: '0.75rem 0 1.5rem',
+  },
+
+  '& span': {
+    color: '#233165',
+    fontWeight: 700,
   },
 
   '& ul': {
     listStyle: 'none',
-    fontSize: '2rem',
+    fontSize: '2.25rem',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
