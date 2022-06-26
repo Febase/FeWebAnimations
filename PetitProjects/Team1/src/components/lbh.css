@@ -1,0 +1,66 @@
+.spring-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lbh-profile {
+  text-align: center;
+}
+
+.lbh {
+  color: rgb(65, 70, 84);
+  font-size: 36px;
+  margin: 0 0 15px 0;
+  font-weight: 500;
+  z-index: 999991;
+}
+
+.company-letter {
+  display: inline-block;
+  color: #131313;
+  letter-spacing: 0.15em;
+  text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474;
+  font-size: 32px;
+  padding-bottom: 1rem;
+}
+
+.developer {
+  font-size: 24px;
+  color: #e0dfdc;
+  letter-spacing: 0.1em;
+  text-shadow: 0 -1px 0 #737272;
+}
+
+.canvas {
+  display: inline;
+  height: 100vh;
+}
+
+.flowerA {
+  width: 15px;
+  height: 15px;
+  border-radius: 45% 25% 50% 20%;
+  z-index: 1;
+  position: absolute;
+  top: -20%;
+}
+
+.flowerB {
+  width: 8px;
+  height: 8px;
+  border-radius: 60% 15% 65% 20%;
+  z-index: 1;
+  position: absolute;
+  top: -10%;
+}
+
+.flowerC {
+  width: 10px;
+  height: 10px;
+  border-radius: 60% 17% 55% 23%;
+  z-index: 1;
+  position: absolute;
+  top: -5%;
+}

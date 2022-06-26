@@ -1,7 +1,7 @@
 import Doho from "./components/Doho";
 import BonHaeng from "./components/BonHaeng";
-import ByeongHeon from "./components/ByeongHeon";
-import JunSung from "./components/JunSung";
+import Byounghern from "./components/Byounghern/Byounghern";
+import JunSeong from "./components/JunSeong";
 
 function App(): JSX.Element {
   return (
@@ -9,7 +9,7 @@ function App(): JSX.Element {
       <BonHaeng />
       <JunSung />
       <Doho />
-      <ByeongHeon />
+      <Byounghern />
     </div>
   );
 }
