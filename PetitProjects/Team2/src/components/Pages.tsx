@@ -44,10 +44,13 @@ const PageDescription = styled.p`
 let rafCache: number | null = null;
 
 const smoothMoveTo = (y: number) => {
-  const speed = Math.abs(window.scrollY - y) / 20;
+  let speed = Math.abs(window.scrollY - y) / 15;
   const move = () => {
-    const diff = window.scrollY - y;
-    console.log(speed);
+
+    const diff = (window.scrollY - y);
+    if(Math.abs(diff) < 300) {
+      speed = Math.abs(diff) / 10;
+    }
 
     if (diff === 0) return;
 
@@ -81,8 +84,6 @@ function throttle<T>(fun: (arg: T) => void, ms: number) {
 const Pages = () => {
   const listRef = useRef<HTMLUListElement>(null);
   const indexRef = useRef<number>(0);
-  const wheelDeltaRef = useRef<number>(0);
-  // const wheelDetectorRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const changeCurrentSection = useCallback(
     throttle((ev: WheelEvent) => {
