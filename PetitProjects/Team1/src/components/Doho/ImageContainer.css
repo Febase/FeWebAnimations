@@ -1,0 +1,240 @@
+.image-container {
+  position: relative;
+  margin: 0;
+}
+
+.image-container:hover article {
+  opacity: 0.5;
+}
+
+.introduce-box {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-container:hover .introduce-box {
+  display: flex;
+  background-image: none;
+  color: #555555;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+article {
+  width: 33vw;
+  display: grid;
+  grid-template-columns: 8.25vw 8.25vw 8.25vw 8.25vw;
+  transition: all 0.2s;
+}
+
+.image-container:first-child div {
+  background-image: url("../../img/단풍.jpg");
+}
+
+.image-container:nth-child(2) div {
+  background-image: url("../../img/단풍스.jpg");
+}
+
+.image-container:nth-child(3) div {
+  background-image: url("../../img/허수아비.jpg");
+}
+
+article div {
+  width: 8.25vw;
+  height: 12.5vh;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+}
+
+/* row1 */
+
+.col1 {
+  background-position: 0% 25%;
+}
+
+.image-container:hover .col1 {
+  background-position: 0% 0;
+}
+
+.col2 {
+  background-position: 33.3% 0;
+}
+
+.col3 {
+  background-position: 66.7% 0;
+}
+
+.col4 {
+  background-position: 100% 0;
+}
+
+
+/* row2 */
+
+.col5 {
+
+  background-position: 0% 37.5%;
+}
+
+.image-container:hover .col5 {
+  background-position: 0% 25%;
+}
+
+.col6 {
+  background-position: 33.3% 25%;
+}
+
+.col7 {
+  background-position: 100% 25%;
+
+}
+
+.image-container:hover .col7 {
+  background-position: 66.7% 25%;
+}
+
+.col8 {
+  background-position: 66.7% 25%;
+
+}
+
+.image-container:hover .col8 {
+  background-position: 100% 25%;
+}
+
+/* row3 */
+
+.col9 {
+  background-position: 0% 0;
+}
+
+.image-container:hover .col9 {
+  background-position: 0% 37.5%;
+}
+
+.col10 {
+  background-position: 33.3% 37.5%;
+}
+
+.col11 {
+  background-position: 66.7% 37.5%;
+}
+
+.col12 {
+  background-position: 100% 37.5%;
+}
+
+/* row4 */
+
+.col13 {
+  background-position: 0% 50.00%;
+}
+
+.col14 {
+  background-position: 33.3% 50.00%;
+}
+
+.col15 {
+  background-position: 66.7% 50.00%;
+}
+
+.col16 {
+  background-position: 100% 50.00%;
+}
+
+/* row5 */
+
+.col17 {
+  background-position: 0% 62.5%;
+}
+
+.col18 {
+  background-position: 33.3% 62.5%;
+}
+
+.col19 {
+  background-position: 66.7% 62.5%;
+}
+
+.col20 {
+  background-position: 100% 62.5%;
+}
+
+/* row6 */
+
+.col21 {
+  background-position: 0% 75.0%;
+}
+
+.col22 {
+  background-position: 0% 87.5%;
+
+}
+
+.image-container:hover .col22 {
+  background-position: 33.3% 75.0%;
+}
+
+.col23 {
+  background-position: 66.7% 75.0%;
+}
+
+.col24 {
+  background-position: 100% 75.0%;
+}
+
+
+/* row7 */
+
+.col25 {
+  background-position: 33.3% 75.0%;
+}
+
+.image-container:hover .col25 {
+  background-position: 0% 87.5%;
+}
+
+.col26 {
+  background-position: 100% 87.5%;
+}
+
+.image-container:hover .col26 {
+  background-position: 33.3% 87.5%;
+}
+
+.col27 {
+  background-position: 66.6% 87.5%;
+}
+
+.col28 {
+  background-position: 33.3% 87.5%;
+}
+
+.image-container:hover .col28 {
+  background-position: 100% 87.5%;
+}
+
+/* row8 */
+
+.col29 {
+  background-position: 0% 100%;
+}
+
+.col30 {
+  background-position: 33.3% 100%;
+}
+
+.col31 {
+  background-position: 66.7% 100%;
+}
+
+.col32 {
+  background-position: 100% 100%;
+}
