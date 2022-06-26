@@ -1,13 +1,18 @@
+html,
+body {
+  overscroll-behavior-y: none;
+}
+
 body {
   margin: 0;
-  font-family: 'MaruBuri';
+  font-family: "MaruBuri";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* font-family: 'MaruBuri'; */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 

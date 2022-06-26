@@ -29,10 +29,10 @@ const Ribbon = ({ color }: { color: string }) => {
         x: "-50%",
       }}
       style={{ fill: backgroundFramer }}
-      animate={{
-        y: [-100, 0, 100, 200, 300, 400],
-      }}
-      transition={{ duration: 200, ease: "linear" }}
+      // animate={{
+      //   y: [-100, 0, 100, 200, 300, 400],
+      // }}
+      // transition={{ duration: 200, ease: "linear" }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
