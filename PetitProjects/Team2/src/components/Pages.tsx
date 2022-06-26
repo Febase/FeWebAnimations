@@ -40,7 +40,6 @@ const PageTitle = styled.h3`
 const PageDescription = styled.p`
   font-size: 16px;
   line-height: 24px;
-  width: 36.2244898%;
   font-weight: 400;
 `;
 
@@ -87,9 +86,7 @@ function throttle<T>(fun: (arg: T) => void, ms: number) {
 const Pages = () => {
   const listRef = useRef<HTMLUListElement>(null);
   const indexRef = useRef<number>(0);
-  const wheelDeltaRef = useRef<number>(0);
   const visibleIdx = useRef<number>(0);
-  // console.log("visibleIdx: ", visibleIdx);
   const [count, setCount] = useState<number[]>(
     Array.from({ length: 4 }, () => 0)
   );
@@ -100,8 +97,6 @@ const Pages = () => {
   const entry1 = useIntersectionObserver(refs.current[1], {});
   const entry2 = useIntersectionObserver(refs.current[2], {});
   const entry3 = useIntersectionObserver(refs.current[3], {});
-
-  // const wheelDetectorRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const changeCurrentSection = useCallback(
     throttle((ev: WheelEvent) => {
@@ -114,7 +109,6 @@ const Pages = () => {
       }
 
       indexRef.current = index;
-      // window.location.href = "#" + intro[indexRef.current].first;
       window.history.pushState(null, "", "#" + intro[indexRef.current].first);
       smoothMoveTo(indexRef.current * window.innerHeight);
     }, 700),
