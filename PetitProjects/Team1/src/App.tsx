@@ -7,7 +7,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <BonHaeng />
-      <JunSeong />
+      <JunSung />
       <Doho />
       <Byounghern />
     </div>
