@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import {
   motion,
-  motionValue,
+  // motionValue,
   TargetAndTransition,
   useTransform,
   useViewportScroll,
@@ -31,12 +30,19 @@ const stairLines: StairLineProps[] = [
     //본행
     emptySpan: 5,
     filledSpan: 2,
+    whileHover: {
+      filter: "brightness(115%) drop-shadow(-6px -4px 3px #c18214)",
+      textShadow: "-6px -4px 3px #ffa412",
+    },
   },
   {
     //석영
     emptySpan: 4,
     filledSpan: 3,
-    whileHover: {},
+    whileHover: {
+      color: "#ffffff",
+      boxShadow: `inset 1000px 0 0 0 #54b3d6`,
+    },
   },
   {
     //순호
@@ -51,6 +57,11 @@ const stairLines: StairLineProps[] = [
     //병헌
     emptySpan: 2,
     filledSpan: 4,
+    whileHover: {
+      filter: `hue-rotate(360deg) brightness(200%)`,
+      transition: { duration: 0.1, repeat: 1 },
+      textShadow: `0px 0px 24px ${true ? "#853e18" : "#ffaa22"}`,
+    }
   },
   {
     emptySpan: 1,
@@ -62,7 +73,7 @@ const MAX_SCROLL_TOP = 480; // 6rem * 5
 
 const Stair = () => {
   const { scrollYProgress } = useViewportScroll();
-  const scroll = useTransform(scrollYProgress, [0, 1], [0.1, 480]);
+  const scroll = useTransform(scrollYProgress, [0, 1], [0.1, MAX_SCROLL_TOP]);
 
   return (
     <StairSection>
@@ -72,10 +83,7 @@ const Stair = () => {
             {Array.from({ length: emptySpan + filledSpan }).map((_, j) => (
               <motion.span
                 key={i + "-" + j}
-                transformTemplate={({ y }) => {
-                  console.log(y);
-                  return `translateY(-${y})`;
-                }}
+                transformTemplate={({ y }) => `translateY(-${y})`}
                 style={{ y: scroll }}
                 whileHover={whileHover}
               >
