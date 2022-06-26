@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { intro } from "../constants/introduce";
 import styled from "styled-components";
+import { motion } from 'framer-motion';
 
-const BulletsList = styled.ul`
+const BulletsList = styled(motion.ul)`
   width: 400px;
   line-height: 16px;
   text-align: center;
@@ -12,7 +13,7 @@ const BulletsList = styled.ul`
   left: calc(18.772563% - 200px);
   // top: 50vh; //top: calc(50vh - 112px); 최초 진입시 중간값
   // transform: translateY(-200px);
-  // transform: translateY(-50%);
+  transform: translateY(-50%);
   color: #1b1b1b;
   font-weight: 600;
 `;
@@ -31,10 +32,13 @@ const BulletItem = styled.li`
   }
 `;
 
+const LIST_ITEM_HEIGHT = 72;
+
 const Bullets = () => {
   const [focused, setFocused] = useState<string>(
     window.location.hash.replace("#", "")
   );
+
   const scrollToElement = (id: string) => {
     const target = document.querySelector(`#${id}`) as HTMLElement;
     window.scrollTo({
@@ -50,8 +54,19 @@ const Bullets = () => {
     });
   }, []);
 
+  const focusedIndex = intro.findIndex((item) => item.first === focused);
+  
+  const transitionY = (1- focusedIndex) * LIST_ITEM_HEIGHT;
+  
   return (
-    <BulletsList>
+    <BulletsList
+      animate={{
+        top: `calc(50% + ${transitionY}px)`
+      }}
+      transition={{
+        ease: "linear"
+      }}
+    >
       {intro.map((item, index) => (
         <BulletItem
           className={focused === item.first ? "focused" : ""}
