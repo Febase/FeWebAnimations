@@ -20,6 +20,12 @@ const Ribbon = ({ color }: { color: string }) => {
     ["#F2B035", "#F28963", "#049DD9", "#F2167D"]
   );
 
+  const yPosAnim = useTransform(
+    scrollYProgress,
+    [0, 0.33, 0.66, 1],
+    [-0, -200, -400, -600]
+  );
+
   return (
     <Svg
       width="888"
@@ -28,11 +34,11 @@ const Ribbon = ({ color }: { color: string }) => {
       initial={{
         x: "-50%",
       }}
-      style={{ fill: backgroundFramer }}
-      // animate={{
-      //   y: [-100, 0, 100, 200, 300, 400],
-      // }}
-      // transition={{ duration: 200, ease: "linear" }}
+      style={{ fill: backgroundFramer, y: yPosAnim}}
+      animate={{
+        y: [-100, 0, 100, 200, 300, 400],
+      }}
+      transition={{ duration: 200, ease: "linear" }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
