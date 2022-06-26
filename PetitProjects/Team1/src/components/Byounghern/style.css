@@ -1,16 +1,25 @@
+.container {
+  width: 100%;
+}
 .background-wrapper {
   position: absolute;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
 .background {
-  margin: auto;
+  padding-top: 10vh;
+
   position: relative;
   object-fit: cover;
-  width: 100%;
+  width: 80%;
 }
 
 .namecard-container {
+  width: fit-content;
+  padding-top: 10vh;
   font-size: 2rem;
   font-weight: 600;
 }
