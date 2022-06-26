@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Background from "./Backgorund";
 import NameCard from "./NameCard";
 import Snow from "./Snow";
@@ -7,7 +7,7 @@ import "./style.css";
 
 function ByeongHeon() {
   const [snows, setSnows] = useState([100]);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   const resetSnow = () => {
     setSnows([]);
@@ -19,10 +19,6 @@ function ByeongHeon() {
     }
     setSnows(temp);
   };
-  useEffect(() => {
-    resetSnow();
-    return () => {};
-  }, []);
 
   return (
     <section className="container">

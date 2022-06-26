@@ -1,16 +1,13 @@
-import { motion, useTransform, useViewportScroll } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 type SnowProp = {
   period: number;
   x: number;
 };
 
 function Snow(props: SnowProp) {
-  const { scrollY } = useViewportScroll();
-
   return (
     <motion.div
-      style={{ position: "relative", x: props.x, opacity: 0, y: -100 }}
+      style={{ position: "relative", x: props.x, opacity: 0.5, y: -100 }}
       animate={{ y: window.innerHeight * 0.8, opacity: 0.8 }}
       transition={{ default: { duration: props.period } }}>
       <motion.svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">

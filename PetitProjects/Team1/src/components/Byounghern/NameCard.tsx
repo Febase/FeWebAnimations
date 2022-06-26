@@ -1,5 +1,5 @@
-import { motion, useDragControls, Variants } from "framer-motion";
-import React, { useState } from "react";
+import { motion, Variants } from "framer-motion";
+import { useState } from "react";
 import "./style.css";
 
 function NameCard() {
@@ -34,7 +34,7 @@ function NameCard() {
       whileDrag={{ scale: 1.2 }}>
       <div style={{}} />
       <motion.div className="namecard" variants={cardVariants}>
-        Byounghern (October 16th){" "}
+        Byounghern (October 16th)
       </motion.div>
     </motion.div>
   );
