@@ -1,13 +1,13 @@
 import Doho from "./components/Doho";
 import BonHaeng from "./components/BonHaeng";
 import ByeongHeon from "./components/ByeongHeon";
-import JunSeong from "./components/JunSeong";
+import JunSung from "./components/JunSung";
 
 function App(): JSX.Element {
   return (
     <div className="App">
       <BonHaeng />
-      <JunSeong />
+      <JunSung />
       <Doho />
       <ByeongHeon />
     </div>
