@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Wonjong from './components/wonjong';
+import Wonjong from './components/Wonjong';
 import { Route, Routes } from 'react-router-dom';
 
 const App: React.FC = () => {
