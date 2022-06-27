@@ -33,6 +33,27 @@ const BulletItem = styled.li`
 `;
 
 const LIST_ITEM_HEIGHT = 72;
+let rafCache: number | null = null;
+
+const smoothMoveTo = (y: number) => {
+  let speed = Math.abs(window.scrollY - y) / 15;
+  const move = () => {
+    const diff = (window.scrollY - y);
+    if (diff === 0) return;
+
+    if (diff > 0) {
+      window.scrollTo(0, window.scrollY - Math.min(diff, speed));
+    } else {
+      window.scrollTo(0, window.scrollY + Math.min(Math.abs(diff), speed));
+    }
+    rafCache = requestAnimationFrame(move);
+  };
+  if (rafCache) {
+    cancelAnimationFrame(rafCache);
+    rafCache = null;
+  }
+  move();
+};
 
 const Bullets = () => {
   const [focused, setFocused] = useState<string>(
@@ -41,10 +62,10 @@ const Bullets = () => {
 
   const scrollToElement = (id: string) => {
     const target = document.querySelector(`#${id}`) as HTMLElement;
-    window.scrollTo({
-      top: target.offsetTop,
-      behavior: "smooth",
-    });
+    // window.scrollTo({
+    //   top: target.offsetTop,
+    // });
+    smoothMoveTo(target.offsetTop);
     window.history.pushState(null, "", "#" + id);
   };
 
