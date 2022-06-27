@@ -1,11 +1,11 @@
+import React, { useState } from 'react';
+import './App.css';
+import Tremble from './components/Tremble';
 import Spin from "./components/Spin";
-import React, { useState } from "react";
 import "./App.css";
-import Tremble from "./components/Tremble";
-// import Spin from "./components/Spin";
 import Letter from "./components/Letter";
-import WonjongText from "./WonjongText";
 import NtoS from './components/NtoS';
+import WonjongText from "./components/WonjongText";
 
 function App() {
   const [word, setWord] = useState<string>("");
