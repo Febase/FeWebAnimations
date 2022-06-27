@@ -13,18 +13,15 @@ const Svg = styled(motion.svg)`
 
 const Ribbon = ({ color }: { color: string }) => {
   const { scrollYProgress, scrollY } = useViewportScroll();
-  // const background = useTransform(scrollYProgress, )
   const backgroundFramer = useTransform(
     scrollYProgress,
     [0, 0.33, 0.66, 1],
     ["#F2B035", "#F28963", "#049DD9", "#F2167D"]
   );
-
-  const yPosAnim = useTransform(
-    scrollYProgress,
-    [0, 0.33, 0.66, 1],
-    [-0, -200, -400, -600]
-  );
+  const scrollYFramer = useTransform(
+    scrollY,
+    latest => latest / 10
+  )
 
   return (
     <Svg
@@ -34,10 +31,8 @@ const Ribbon = ({ color }: { color: string }) => {
       initial={{
         x: "-50%",
       }}
-      style={{ fill: backgroundFramer, y: yPosAnim}}
-      animate={{
-        y: [-100, 0, 100, 200, 300, 400],
-      }}
+      style={{ fill: backgroundFramer, y: scrollYFramer }}
+      transformTemplate={({ y }) => `translate(-50%, -${y})`}
       transition={{ duration: 200, ease: "linear" }}
       xmlns="http://www.w3.org/2000/svg"
     >

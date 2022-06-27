@@ -1,7 +1,10 @@
-import { Intro, intro } from "../constants/introduce";
-import styled from "styled-components";
+import { createRef, useState } from "react";
+import { intro } from "../constants/introduce";
+import styled from "styled-components/macro";
 import { motion } from "framer-motion";
 import { useCallback, useEffect, useRef } from "react";
+import useInterval from "../hook/useInterval";
+import useIntersectionObserver from "../hook/useIntersectionObserver";
 
 const PageList = styled.ul`
   padding: 0;
@@ -37,7 +40,6 @@ const PageTitle = styled.h3`
 const PageDescription = styled.p`
   font-size: 16px;
   line-height: 24px;
-  width: 36.2244898%;
   font-weight: 400;
 `;
 
@@ -84,6 +86,17 @@ function throttle<T>(fun: (arg: T) => void, ms: number) {
 const Pages = () => {
   const listRef = useRef<HTMLUListElement>(null);
   const indexRef = useRef<number>(0);
+  const visibleIdx = useRef<number>(0);
+  const [count, setCount] = useState<number[]>(
+    Array.from({ length: 4 }, () => 0)
+  );
+  const refs = useRef(
+    Array.from({ length: 5 }, () => createRef<HTMLDivElement>())
+  );
+  const entry0 = useIntersectionObserver(refs.current[0], {});
+  const entry1 = useIntersectionObserver(refs.current[1], {});
+  const entry2 = useIntersectionObserver(refs.current[2], {});
+  const entry3 = useIntersectionObserver(refs.current[3], {});
 
   const changeCurrentSection = useCallback(
     throttle((ev: WheelEvent) => {
@@ -96,7 +109,6 @@ const Pages = () => {
       }
 
       indexRef.current = index;
-      // window.location.href = "#" + intro[indexRef.current].first;
       window.history.pushState(null, "", "#" + intro[indexRef.current].first);
       smoothMoveTo(indexRef.current * window.innerHeight);
     }, 700),
@@ -106,6 +118,23 @@ const Pages = () => {
   const preventScrollEvent = useCallback((ev: WheelEvent) => {
     ev.preventDefault();
   }, []);
+
+  useInterval(() => {
+    setCount((arr) => {
+      const temp = arr.slice(0);
+      temp[visibleIdx.current] < 4
+        ? (temp[visibleIdx.current] = temp[visibleIdx.current] + 1)
+        : (temp[visibleIdx.current] = 0);
+      return temp;
+    });
+  }, 1000);
+
+  useEffect(() => {
+    if (entry0?.isIntersecting) visibleIdx.current = 0;
+    if (entry1?.isIntersecting) visibleIdx.current = 1;
+    if (entry2?.isIntersecting) visibleIdx.current = 2;
+    if (entry3?.isIntersecting) visibleIdx.current = 3;
+  }, [entry0, entry1, entry2, entry3]);
 
   useEffect(() => {
     window.addEventListener("hashchange", () => {
@@ -123,12 +152,14 @@ const Pages = () => {
 
   return (
     <PageList ref={listRef}>
-      {intro.map((item) => (
+      {intro.map((item, idx) => (
         <PageItem key={item.fullName} id={item.first}>
-          <PageContent>
+          <PageContent ref={refs.current[idx]}>
             <PageTitle>{item.fullName}</PageTitle>
             <PageDescription>
-              저는 프론트엔드 개발자이고, [{item.keywords[0]}]입니다.
+              저는 프론트엔드 개발자이고, [
+              {item.keywords[count[visibleIdx.current]]}
+              ]입니다.
             </PageDescription>
           </PageContent>
         </PageItem>
